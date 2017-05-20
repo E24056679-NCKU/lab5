@@ -1,0 +1,25 @@
+ctor : int n
+ctor : int n
+ctor : const HugeInt &n
+-901
+end test
+
+ctor : null
+ctor : int n
+ctor : const std::string &&str
+ctor : null
+ctor : const HugeInt &n
+= HugeInt &&rhs
+dtor
+dtor
+0+28825252 = 28825252
+ctor : const HugeInt &n
+= HugeInt &&rhs
+dtor
+314159265358979323846
+dtor
+dtor
+dtor
+dtor
+dtor
+dtor

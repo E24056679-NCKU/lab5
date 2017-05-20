@@ -1,0 +1,45 @@
+ctor : int n
+ctor : int n
+ctor : const HugeInt &n
+ctor : const HugeInt &n
+ctor : const HugeInt &n
+-901
+dtor
+dtor
+dtor
+end test
+
+ctor : null
+ctor : int n
+ctor : std::string str
+ctor : null
+ctor : const HugeInt &n
+ctor : const HugeInt &n
+ctor : const HugeInt &n
+= called
+dtor
+dtor
+dtor
+ctor : const HugeInt &n
+0+ctor : const HugeInt &n
+28825252 = ctor : const HugeInt &n
+28825252
+dtor
+dtor
+dtor
+ctor : const HugeInt &n
+ctor : const HugeInt &n
+ctor : const HugeInt &n
+= called
+dtor
+dtor
+dtor
+ctor : const HugeInt &n
+314159265358979323846
+dtor
+dtor
+dtor
+dtor
+dtor
+dtor
+dtor
