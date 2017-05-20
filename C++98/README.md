@@ -1,3 +1,3 @@
 use makefile to compile
 
-C++11 is required
+C++98
