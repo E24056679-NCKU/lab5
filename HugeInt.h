@@ -11,10 +11,11 @@ class HugeInt
 public:
     HugeInt();
     HugeInt(const HugeInt &n);
-    HugeInt(HugeInt &&rhs);
+    HugeInt(const HugeInt &&rhs);
     HugeInt(const std::string &str);
     HugeInt(const std::string &&str);
     HugeInt(int n);
+    ~HugeInt();
 
     friend std::ostream&  operator<<(std::ostream &out, HugeInt  &n);
     friend std::ostream&  operator<<(std::ostream &out, HugeInt &&n);
@@ -49,26 +50,41 @@ std::list<HugeInt*> HugeInt::tmpObjectPtrs = std::list<HugeInt*>();
 
 HugeInt::HugeInt()
 {
+#ifdef TEST
+    std::cout << "ctor : null" << std::endl;
+#endif
     num.emplace_back(0);
 }
 
 HugeInt::HugeInt(const HugeInt &n)
 {
+#ifdef TEST
+    std::cout << "ctor : const HugeInt &n" << std::endl;
+#endif
     num = n.num;
 }
 
-HugeInt::HugeInt(HugeInt &&rhs)
+HugeInt::HugeInt(const HugeInt &&rhs)
 {
+#ifdef TEST
+    std::cout << "ctor : HugeInt &&rhs" << std::endl;
+#endif
     num = rhs.num;
 }
 
 HugeInt::HugeInt(const std::string &str)
 {
+#ifdef TEST
+    std::cout << "ctor : const std::string &str" << std::endl;
+#endif
     constructFromString(str);
 }
 
 HugeInt::HugeInt(const std::string &&str)
 {
+#ifdef TEST
+    std::cout << "ctor : const std::string &&str" << std::endl;
+#endif
     constructFromString(str);
 }
 
@@ -81,11 +97,21 @@ void HugeInt::constructFromString(const std::string &str)
 
 HugeInt::HugeInt(int n)
 {
+#ifdef TEST
+    std::cout << "ctor : int n" << std::endl;
+#endif
     while(n)
     {
         num.emplace_back(n%10);
         n /= 10;
     }
+}
+
+HugeInt::~HugeInt()
+{
+#ifdef TEST
+    std::cout << "dtor" << std::endl;
+#endif
 }
 
 std::ostream& operator<<(std::ostream &out, HugeInt &n)
@@ -157,6 +183,9 @@ HugeInt&& operator-(      HugeInt &&lhs,       HugeInt &&rhs)
 
 HugeInt&  HugeInt::operator=(HugeInt &&rhs)
 {
+#ifdef TEST
+    std::cout << "= HugeInt &&rhs" << std::endl;
+#endif
     this->num = rhs.num;
     clearTmpObjects();
     return *this;
