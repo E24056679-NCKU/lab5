@@ -36,14 +36,16 @@ private:
     std::vector<int> num;
     void constructFromString(const std::string &str);
 
-    
+    // this list stores pointers of temp-objects created by + and - . prevent memory leak
     static std::list<HugeInt*> tmpObjectPtrs;
+    // clear list tmpObjectsPtrs
     static void clearTmpObjects();
+
     static HugeInt& add(HugeInt &lhs, const HugeInt &rhs); // overwrite the result to lhs
     static HugeInt& sub(HugeInt &lhs, const HugeInt &rhs); // overwrite the result to lhs
 };
-
 std::list<HugeInt*> HugeInt::tmpObjectPtrs = std::list<HugeInt*>();
+
 
 HugeInt::HugeInt()
 {

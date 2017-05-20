@@ -4,10 +4,16 @@ using namespace std;
 
 int main()
 {
-    HugeInt a(1000);
-    HugeInt b("891374918347148973041412341874136498712364");
-    cout << a << endl;
-    cout << b << endl;
-    cout << a + b << endl;
+    HugeInt x;
+    HugeInt y(28825252);
+    HugeInt z("314159265358979323846");
+    HugeInt result;
+
+    cin >> x;
+    result = x + y;
+    cout << x << '+' << y << " = " << result << endl;
+
+    result = z - x;
+    cout << result << endl;
     return 0;
 }
