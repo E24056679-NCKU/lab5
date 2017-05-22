@@ -61,17 +61,16 @@ std::ostream& operator<<(std::ostream &out, HugeInt &n)
         return out;
     }
     __int128 tmp = n.n;
-    int sign = 1;
     if(tmp < 0)
     {
-        sign = -1;
         out << '-';
+        tmp = -tmp;
     }
     int o[40], o_size = 0;
     for( ; tmp ; tmp /= 10)
         o[o_size++] = tmp%10;
     for(o_size -= 1 ; o_size >= 0 ; --o_size)
-        out << o[o_size]*sign;
+        out << o[o_size];
     return out;
 }
 
