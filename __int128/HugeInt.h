@@ -55,6 +55,11 @@ HugeInt::HugeInt(std::string str)
 
 std::ostream& operator<<(std::ostream &out, HugeInt &n)
 {
+    if(n.n == 0)
+    {
+        out << 0;
+        return out;
+    }
     __int128 tmp = n.n;
     int sign = 1;
     if(tmp < 0)
